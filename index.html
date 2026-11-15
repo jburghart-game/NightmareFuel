@@ -362,6 +362,15 @@ body::before{z-index:-3!important}body::after{z-index:-2!important}
 .btn:hover .ig{filter:drop-shadow(0 0 4px #ff0000) drop-shadow(0 0 10px #ff0000)}
 footer{font-family:Futura,"Futura PT","Jost",sans-serif;font-weight:700;letter-spacing:.12em;font-size:12px}
 .sp-embed{border-radius:10px;overflow:hidden;box-shadow:inset 0 0 0 3px #050505}.sp-embed iframe{display:block;border:0}
+/* --- v20 --- */
+.logline .hl{color:var(--blood);font-weight:700;font-style:italic}
+.logline.ll2{text-align:center!important;margin-top:14px}
+.script-lock{max-width:420px;margin:0 auto;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.script-lock input{background:#050505;border:1px solid #333;border-radius:6px;color:#d9d4c7;font:16px Futura,"Jost",sans-serif;letter-spacing:.12em;padding:12px 14px;width:220px}
+.script-lock input:focus{outline:none;border-color:#7a0a10;box-shadow:0 0 14px rgba(176,8,18,.5)}
+.script-msg{text-align:center;color:var(--muted);font-size:15px;margin-top:10px;min-height:1.2em}
+#scriptPages{max-height:80vh;overflow-y:auto;background:#111;border:1px solid var(--rule);border-radius:6px;padding:12px;display:none}
+#scriptPages canvas{display:block;width:100%;max-width:760px;margin:0 auto 12px;background:#fff}
 </style>
 </head>
 <body>
@@ -370,7 +379,8 @@ footer{font-family:Futura,"Futura PT","Jost",sans-serif;font-weight:700;letter-s
 <header class="hero">
   <div class="wrap">
     <h1><svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="neon" color-interpolation-filters="sRGB"><feColorMatrix values="-.69 0 0 0 .79  0 -.77 0 0 .87  0 0 -.2 0 .23  0 0 0 1 0"/></filter></svg><img class="title-art" src="title.png" alt="Nightmare Fuel"></h1>
-    <p class="logline">After hijacking her brother’s hearse at his funeral, Christine attempts to resurrect him — only to unleash a demon into his body and everyone who received his donated organs. To bring him back, she’ll have to take them back.</p>
+    <p class="logline">After hijacking her brother’s hearse at his funeral, Christine attempts to resurrect him, only to unleash a demon into his body <em class="hl">and</em> everyone who received his donated organs.</p>
+    <p class="logline ll2">To bring him back, <em class="hl">she’ll have to take them back.</em></p>
     <div class="cta">
       <a class="btn primary" href="#video">▶ Watch the mood trailer</a>
       <a class="btn" href="mailto:JacobBurghart@gmail.com?subject=Nightmare%20Fuel">Get the script</a>
@@ -393,6 +403,27 @@ footer{font-family:Futura,"Futura PT","Jost",sans-serif;font-weight:700;letter-s
     <div class="deck-bar"><span id="c">2 / 11</span><a href="mailto:JacobBurghart@gmail.com?subject=Nightmare%20Fuel%20deck">Request the PDF</a></div>
   </div>
 </section>
+<section id="script">
+  <div class="wrap">
+    <h2>Script</h2>
+    <form class="script-lock" id="lock"><input type="password" id="pw" placeholder="PASSWORD" aria-label="Script password" autocomplete="off"><button class="btn" type="submit">Unlock</button></form>
+    <p class="script-msg" id="smsg">Password protected. Request access at JacobBurghart@gmail.com</p>
+    <div id="scriptPages"></div>
+  </div>
+</section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+document.getElementById('lock').onsubmit=async e=>{e.preventDefault();const m=document.getElementById('smsg');m.textContent='Unlocking…';
+try{const buf=new Uint8Array(await (await fetch('script.bin')).arrayBuffer());
+const km=await crypto.subtle.importKey('raw',new TextEncoder().encode(document.getElementById('pw').value),'PBKDF2',false,['deriveKey']);
+const key=await crypto.subtle.deriveKey({name:'PBKDF2',salt:buf.slice(0,16),iterations:200000,hash:'SHA-256'},km,{name:'AES-GCM',length:256},false,['decrypt']);
+const pdf=new Uint8Array(await crypto.subtle.decrypt({name:'AES-GCM',iv:buf.slice(16,28)},key,buf.slice(28)));
+m.textContent='';document.getElementById('lock').style.display='none';
+pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+const doc=await pdfjsLib.getDocument({data:pdf}).promise;const box=document.getElementById('scriptPages');box.style.display='block';
+for(let n=1;n<=doc.numPages;n++){const p=await doc.getPage(n);const v=p.getViewport({scale:1.6});const c=document.createElement('canvas');c.width=v.width;c.height=v.height;box.appendChild(c);await p.render({canvasContext:c.getContext('2d'),viewport:v}).promise}
+}catch(err){m.textContent='Wrong password.'}};
+</script>
 <script>
 (()=>{const s=[...document.querySelectorAll('#d img')];let i=1;const c=document.getElementById('c');
 const go=n=>{s[i].classList.remove('on');i=(n+s.length)%s.length;s[i].classList.add('on');c.textContent=(i+1)+' / '+s.length};
