@@ -431,6 +431,7 @@ section p,.lede p,.team p{margin-left:auto!important;margin-right:auto!important
 .intro-blood{position:absolute;inset:0;-webkit-mask:url(title.png) 50% 46%/min(88vw,1100px) auto no-repeat;mask:url(title.png) 50% 46%/min(88vw,1100px) auto no-repeat}
 .intro-blood video{width:100%;height:100%;object-fit:cover;filter:url(#redkey);opacity:.9}
 .intro-tex{opacity:.22!important;filter:url(#neon) drop-shadow(0 0 4px rgba(150,255,120,.35)) drop-shadow(0 0 14px rgba(60,255,80,.28)) drop-shadow(0 0 40px rgba(60,255,80,.16))!important}
+.mask-blood{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:url(#redkey);opacity:.55}
 </style>
 </head>
 <body>
@@ -441,7 +442,7 @@ section p,.lede p,.team p{margin-left:auto!important;margin-right:auto!important
   <h1 class="sr-only">Nightmare Fuel</h1>
   <div class="intro-stick">
     <a class="intro-bg" href="#video" aria-label="Watch the mood trailer"><video src="road.mp4" autoplay muted loop playsinline preload="auto"></video><span class="intro-play">▶</span></a>
-    <div class="intro-title"><div class="intro-shake"><div class="intro-mask"></div><div class="intro-blood"><video src="red.mp4" autoplay muted loop playsinline preload="auto"></video></div><img class="intro-tex" src="title.png" alt=""></div></div>
+    <div class="intro-title"><div class="intro-shake"><div class="intro-mask"><video class="mask-blood" src="red.mp4" autoplay muted loop playsinline preload="auto"></video></div><img class="intro-tex" src="title.png" alt=""></div></div>
     <div class="scroll-cue">SCROLL</div>
     <div class="intro-copy"><div class="wrap">
 <p class="logline">After hijacking her brother’s hearse at his funeral, Christine attempts to resurrect him, only to unleash a demon into his body <em class="hl">and</em> everyone who received his donated organs.</p>
