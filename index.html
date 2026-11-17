@@ -371,6 +371,7 @@ footer{font-family:Futura,"Futura PT","Jost",sans-serif;font-weight:700;letter-s
 .script-msg{text-align:center;color:var(--muted);font-size:15px;margin-top:10px;min-height:1.2em}
 #scriptPages{max-height:80vh;overflow-y:auto;background:#111;border:1px solid var(--rule);border-radius:6px;padding:12px;display:none}
 #scriptPages canvas{display:block;width:100%;max-width:760px;margin:0 auto 12px;background:#fff}
+.dial{display:none!important}body{padding-left:0!important;padding-right:0!important}
 </style>
 </head>
 <body>
@@ -503,8 +504,6 @@ document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(i+1);if(e.key
 </section>
 
 <footer>&copy; COPYRIGHT 2026 BURGHART BROTHERS AND FOLLOW THE LEADER LLC</footer>
-<div class="dial l" aria-hidden="true"><div class="strip ghost-strip"></div><div class="strip"></div><div class="needle"></div><div class="dial-label">FM</div></div>
-<div class="dial r" aria-hidden="true"><div class="strip ghost-strip"></div><div class="strip"></div><div class="needle"></div><div class="dial-label">AM</div></div>
 <script>
 (()=>{const dials=[...document.querySelectorAll('.dial')];
 const fill=(el,start,step,lab)=>{let h='';for(let k=0;k<400;k++){const v=start+k*step;const maj=k%5===0;h+='<div class="tick'+(maj?' maj':'')+'">'+(maj?'<span>'+lab(v)+'</span>':'')+'</div>'}el.innerHTML=h};
