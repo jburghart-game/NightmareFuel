@@ -372,6 +372,20 @@ footer{font-family:Futura,"Futura PT","Jost",sans-serif;font-weight:700;letter-s
 #scriptPages{max-height:80vh;overflow-y:auto;background:#111;border:1px solid var(--rule);border-radius:6px;padding:12px;display:none}
 #scriptPages canvas{display:block;width:100%;max-width:760px;margin:0 auto 12px;background:#fff}
 .dial{display:none!important}body{padding-left:0!important;padding-right:0!important}
+/* --- v22 headlights + fog --- */
+body::before{z-index:-4!important}body::after{z-index:-3!important}
+.lights,.fog{position:fixed;inset:0;z-index:-2;pointer-events:none;overflow:hidden}
+.lights{mix-blend-mode:screen}
+.beam{position:absolute;top:-30vh;left:50%;width:46vw;height:150vh;transform-origin:50% 100%;
+  background:radial-gradient(ellipse 50% 60% at 50% 30%,rgba(255,244,210,.16) 0%,rgba(230,240,190,.07) 45%,transparent 75%);
+  clip-path:polygon(38% 100%,62% 100%,100% 0,0 0);filter:blur(18px)}
+.beam.b2{width:40vw;opacity:.8}
+.fog div{position:absolute;left:-25%;width:150%;height:70vh;filter:blur(40px);opacity:.5;
+  background:radial-gradient(ellipse 30% 40% at 25% 50%,rgba(170,185,150,.18),transparent 70%),radial-gradient(ellipse 35% 35% at 70% 40%,rgba(150,165,135,.14),transparent 70%);
+  animation:drift 60s linear infinite alternate}
+.fog .f2{animation-duration:85s;animation-direction:alternate-reverse;opacity:.35}
+@keyframes drift{to{margin-left:18%}}
+@media (prefers-reduced-motion:reduce){.fog div{animation:none}}
 </style>
 </head>
 <body>
@@ -531,6 +545,16 @@ addEventListener('scroll',()=>{const now=performance.now();if(now-last<45)return
 (()=>{const p=document.getElementById('routePath'),wrap=document.querySelector('.route');const L=p.getTotalLength();
 p.style.strokeDasharray=L;const u=()=>{const m=document.documentElement.scrollHeight-innerHeight;const k=m>0?Math.min(1,scrollY/m):1;
 p.style.strokeDashoffset=L*(1-k);wrap.classList.toggle('done',k>.985)};addEventListener('scroll',u,{passive:true});addEventListener('resize',u);u();})();
+</script>
+<div class="fog" aria-hidden="true"><div class="f1"></div><div class="f2"></div></div>
+<div class="lights" aria-hidden="true"><div class="beam b1"></div><div class="beam b2"></div></div>
+<script>
+(()=>{const b1=document.querySelector('.beam.b1'),b2=document.querySelector('.beam.b2'),f1=document.querySelector('.fog .f1'),f2=document.querySelector('.fog .f2');
+let raf=0;const upd=()=>{raf=0;const y=scrollY,h=Math.max(1,document.documentElement.scrollHeight-innerHeight),p=y/h;
+const a=Math.sin(p*Math.PI*3)*28, x=Math.sin(p*Math.PI*3+.6)*22;
+b1.style.transform=`translateX(calc(-50% + ${x-6}vw)) rotate(${a}deg)`;b2.style.transform=`translateX(calc(-50% + ${x+6}vw)) rotate(${a+5}deg)`;
+f1.style.top=(20-y*.05%120)+'vh';f2.style.top=(55-y*.09%140)+'vh';};
+addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(upd)},{passive:true});upd();})();
 </script>
 </body>
 </html>
