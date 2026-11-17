@@ -427,17 +427,21 @@ section p,.lede p,.team p{margin-left:auto!important;margin-right:auto!important
 @keyframes projector{0%{transform:translate(0,0)}20%{transform:translate(.6px,-.8px)}40%{transform:translate(-.5px,.6px)}60%{transform:translate(.4px,.9px)}80%{transform:translate(-.7px,-.4px)}}
 @media (prefers-reduced-motion:reduce){.intro-shake{animation:none}}
 .intro-bg video{filter:brightness(1.9) contrast(1.35) sepia(.04) hue-rotate(4deg)!important}
+/* --- v38 blood in letters --- */
+.intro-blood{position:absolute;inset:0;-webkit-mask:url(title.png) 50% 46%/min(88vw,1100px) auto no-repeat;mask:url(title.png) 50% 46%/min(88vw,1100px) auto no-repeat}
+.intro-blood video{width:100%;height:100%;object-fit:cover;filter:url(#redkey);opacity:.9}
+.intro-tex{opacity:.22!important;filter:url(#neon) drop-shadow(0 0 4px rgba(150,255,120,.35)) drop-shadow(0 0 14px rgba(60,255,80,.28)) drop-shadow(0 0 40px rgba(60,255,80,.16))!important}
 </style>
 </head>
 <body>
 
 <div class="route" aria-hidden="true"><svg viewBox="0 0 1536 1040" preserveAspectRatio="xMidYMid slice"><path id="routePath" d="M962 1100 L962 1000 L960 955 L952 880 L945 800 L945 765 L950 730 L960 698 L1000 670 L1025 640 L1060 615 L1125 612 L1150 590 L1180 545 L1190 510 L1205 480 L1215 470 L1240 474 L1265 477 L1240 474 L1215 470 L1215 420 L1218 380 L1225 320 L1232 255 L1150 256 L1050 257 L950 258 L840 258 L832 200 L820 120 L800 40 L790 -120"/><circle id="routeEnd" cx="790" cy="-120" r="7"/></svg></div>
 <header class="intro" id="top">
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="neon" color-interpolation-filters="sRGB"><feColorMatrix values="-.69 0 0 0 .79  0 -.77 0 0 .87  0 0 -.2 0 .23  0 0 0 1 0"/></filter></svg>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="redkey" color-interpolation-filters="sRGB"><feColorMatrix values="1.1 0 0 0 0  0 .12 0 0 0  0 0 .12 0 0  2.4 -2.6 0 0 0"/></filter><filter id="neon" color-interpolation-filters="sRGB"><feColorMatrix values="-.69 0 0 0 .79  0 -.77 0 0 .87  0 0 -.2 0 .23  0 0 0 1 0"/></filter></svg>
   <h1 class="sr-only">Nightmare Fuel</h1>
   <div class="intro-stick">
     <a class="intro-bg" href="#video" aria-label="Watch the mood trailer"><video src="road.mp4" autoplay muted loop playsinline preload="auto"></video><span class="intro-play">▶</span></a>
-    <div class="intro-title"><div class="intro-shake"><div class="intro-mask"></div><img class="intro-tex" src="title.png" alt=""></div></div>
+    <div class="intro-title"><div class="intro-shake"><div class="intro-mask"></div><div class="intro-blood"><video src="red.mp4" autoplay muted loop playsinline preload="auto"></video></div><img class="intro-tex" src="title.png" alt=""></div></div>
     <div class="scroll-cue">SCROLL</div>
     <div class="intro-copy"><div class="wrap">
 <p class="logline">After hijacking her brother’s hearse at his funeral, Christine attempts to resurrect him, only to unleash a demon into his body <em class="hl">and</em> everyone who received his donated organs.</p>
