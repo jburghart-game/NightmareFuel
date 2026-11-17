@@ -414,7 +414,7 @@ section p,.lede p,.team p{margin-left:auto!important;margin-right:auto!important
 /* --- v32 trailer reveal --- */
 .intro-bg{background:#000!important;display:block;cursor:pointer}
 .intro-mask{pointer-events:none}
-.intro-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.intro-bg video{filter:brightness(1.45) contrast(1.05);position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .intro-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.1) 35%,rgba(0,0,0,.88) 72%,var(--bg) 100%)}
 .intro-play{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);width:84px;height:84px;border-radius:50%;border:2px solid rgba(230,230,220,.8);color:#eee;font-size:30px;display:grid;place-items:center;padding-left:6px;background:rgba(0,0,0,.35);z-index:1;opacity:0;transition:opacity .3s,box-shadow .2s,color .2s}
 .intro-bg:hover .intro-play{color:#ff2a2a;border-color:#ff2a2a;box-shadow:0 0 24px rgba(255,0,0,.6)}
@@ -427,7 +427,7 @@ section p,.lede p,.team p{margin-left:auto!important;margin-right:auto!important
   <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="neon" color-interpolation-filters="sRGB"><feColorMatrix values="-.69 0 0 0 .79  0 -.77 0 0 .87  0 0 -.2 0 .23  0 0 0 1 0"/></filter></svg>
   <h1 class="sr-only">Nightmare Fuel</h1>
   <div class="intro-stick">
-    <a class="intro-bg" href="#video" aria-label="Watch the mood trailer"><img src="deck/p01.jpg" alt=""><span class="intro-play">▶</span></a>
+    <a class="intro-bg" href="#video" aria-label="Watch the mood trailer"><video src="road.mp4" autoplay muted loop playsinline preload="auto"></video><span class="intro-play">▶</span></a>
     <div class="intro-mask"></div>
     <div class="scroll-cue">SCROLL</div>
     <div class="intro-copy"><div class="wrap">
