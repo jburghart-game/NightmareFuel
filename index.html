@@ -436,11 +436,12 @@ section p,.lede p,.team p{margin-left:auto!important;margin-right:auto!important
 /* v40 plain video top */.top-video{width:100%;background:#000}.top-video video{display:block;width:100%;height:auto;max-height:100vh;object-fit:cover}.top-copy{padding:56px 0 24px;text-align:center}
 /* v41 red play */.top-video{position:relative}.top-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:96px;height:96px;border-radius:50%;border:2px solid #ff2a2a;color:#ff2a2a;font-size:34px;display:grid;place-items:center;padding-left:6px;background:rgba(0,0,0,.4);box-shadow:0 0 24px rgba(255,0,0,.6);cursor:pointer;transition:box-shadow .2s,transform .2s}.top-play:hover{box-shadow:0 0 40px rgba(255,0,0,.9);transform:translate(-50%,-50%) scale(1.06)}.top-video.playing .top-play{display:none}
 /* v42 */.top-copy .logline{font-size:1.15em}.hl.red{color:#ff2a2a!important;text-shadow:0 0 10px rgba(255,30,30,.85),0 0 28px rgba(255,0,0,.55)!important}
+/* v43 */.top-copy{padding-top:20px!important}.top-copy .logline{font-size:clamp(19px,2.3vw,23px)!important;margin-top:14px}.redglow,.demon,.hl.red{color:#ff2a2a!important;text-shadow:0 0 10px rgba(255,30,30,.85),0 0 28px rgba(255,0,0,.55)!important}
 </style>
 </head>
 <body>
 
-<div class="route" aria-hidden="true"><svg viewBox="0 0 1536 1040" preserveAspectRatio="xMidYMid slice"><path id="routePath" d="M962 1100 L962 1000 L960 955 L952 880 L945 800 L945 765 L950 730 L960 698 L1000 670 L1025 640 L1060 615 L1125 612 L1150 590 L1180 545 L1190 510 L1205 480 L1215 470 L1240 474 L1265 477 L1240 474 L1215 470 L1215 420 L1218 380 L1225 320 L1232 255 L1150 256 L1050 257 L950 258 L840 258 L832 200 L820 120 L800 40 L790 -120"/><circle id="routeEnd" cx="790" cy="-120" r="7"/></svg></div>
+<div class="route" aria-hidden="true"><svg viewBox="0 0 1536 1040" preserveAspectRatio="xMidYMid slice"><path id="routePath" d="M735 1100 L735 1000 L734 955 L730 880 L727 800 L727 765 L729 730 L734 698 L754 670 L767 640 L784 615 L817 612 L829 590 L844 545 L849 510 L857 480 L862 470 L874 474 L887 477 L874 474 L862 470 L862 420 L863 380 L867 320 L870 255 L829 256 L779 257 L729 258 L674 258 L670 200 L664 120 L654 40 L649 -120"/><circle id="routeEnd" cx="649" cy="-120" r="7"/></svg></div>
 <header class="top" id="top"><h1 class="sr-only">Nightmare Fuel</h1>
 <div class="top-video" id="video"><video src="mood-trailer.mp4" poster="deck/p01.jpg" playsinline controls preload="metadata"></video><button class="top-play" aria-label="Play the mood trailer">▶</button></div>
 <div class="top-copy"><div class="wrap">
@@ -501,7 +502,7 @@ document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(i+1);if(e.key
     <h2>The story</h2>
     <p>After her brother <b class="hl">Noah</b> dies, <b class="hl">Christine Carpenter</b> refuses to accept it. At his funeral she locks everyone inside the church and forces <b class="hl">Michael</b>, the funeral home’s hearse driver, to hit the gas — bound for Stull, Kansas, one of the seven supposed gates to Hell.</p>
     <p><b class="hl">The ritual works. Sort of.</b> Noah’s body comes back, but a demon named <b class="demon">Purson</b> is driving it. And Christine forgot one thing: Noah was an <b class="hl">organ donor</b>. Now Purson has his hooks in every recipient.</p>
-    <p>Armed with the thank-you cards their families sent, Christine tracks them down one by one — a suburban daycare owner, a ren fest employee, a medical facility with a questionable accounting department. Each stop gets worse.</p>
+    <p>Armed with the thank-you cards their families sent, Christine tracks them down one by one — Through this night of Hell, Christine learns how far she’ll go to put her family back together, <b class="redglow">piece by piece.</b></p>
     <p class="kicker">Piece by piece.</p>
   </div>
 </section>
