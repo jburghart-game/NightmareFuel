@@ -440,7 +440,7 @@ section p,.lede p,.team p{margin-left:auto!important;margin-right:auto!important
 
 <div class="route" aria-hidden="true"><svg viewBox="0 0 1536 1040" preserveAspectRatio="xMidYMid slice"><path id="routePath" d="M962 1100 L962 1000 L960 955 L952 880 L945 800 L945 765 L950 730 L960 698 L1000 670 L1025 640 L1060 615 L1125 612 L1150 590 L1180 545 L1190 510 L1205 480 L1215 470 L1240 474 L1265 477 L1240 474 L1215 470 L1215 420 L1218 380 L1225 320 L1232 255 L1150 256 L1050 257 L950 258 L840 258 L832 200 L820 120 L800 40 L790 -120"/><circle id="routeEnd" cx="790" cy="-120" r="7"/></svg></div>
 <header class="top" id="top"><h1 class="sr-only">Nightmare Fuel</h1>
-<div class="top-video" id="video"><video src="mood-trailer.mp4" poster="deck/p01.jpg" autoplay muted loop playsinline controls preload="auto"></video></div>
+<div class="top-video" id="video"><video src="mood-trailer.mp4" poster="deck/p01.jpg" playsinline controls preload="metadata"></video></div>
 <div class="top-copy"><div class="wrap">
 <p class="logline">After hijacking her brother’s hearse at his funeral, Christine attempts to resurrect him, only to unleash a demon into his body <em class="hl">and</em> everyone who received his donated organs.</p>
     <p class="logline ll2">To bring him back, <em class="hl">she’ll have to take them back.</em></p>
@@ -609,6 +609,5 @@ b1.style.transform=`translateX(calc(-50% + ${x-6}vw)) rotate(${a}deg)`;b2.style.
 f1.style.top=(20-y*.05%120)+'vh';f2.style.top=(55-y*.09%140)+'vh';};
 addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(upd)},{passive:true});upd();})();
 </script>
-<script>(()=>{const v=document.querySelector(".top-video video");if(!v)return;v.muted=true;v.defaultMuted=true;v.setAttribute("muted","");const go=()=>{if(v.paused)v.play().catch(()=>{})};go();v.addEventListener("loadeddata",go);v.addEventListener("canplay",go);document.addEventListener("visibilitychange",go);["pointerdown","touchstart","scroll","keydown"].forEach(e=>addEventListener(e,go,{once:true,passive:true}));})();</script>
 </body>
 </html>
