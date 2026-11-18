@@ -609,5 +609,6 @@ b1.style.transform=`translateX(calc(-50% + ${x-6}vw)) rotate(${a}deg)`;b2.style.
 f1.style.top=(20-y*.05%120)+'vh';f2.style.top=(55-y*.09%140)+'vh';};
 addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(upd)},{passive:true});upd();})();
 </script>
+<script>(()=>{const v=document.querySelector(".top-video video");if(!v)return;v.muted=true;v.defaultMuted=true;v.setAttribute("muted","");const go=()=>{if(v.paused)v.play().catch(()=>{})};go();v.addEventListener("loadeddata",go);v.addEventListener("canplay",go);document.addEventListener("visibilitychange",go);["pointerdown","touchstart","scroll","keydown"].forEach(e=>addEventListener(e,go,{once:true,passive:true}));})();</script>
 </body>
 </html>
