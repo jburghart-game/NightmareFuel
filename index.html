@@ -434,13 +434,14 @@ section p,.lede p,.team p{margin-left:auto!important;margin-right:auto!important
 .mask-blood{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:url(#redkey);opacity:.55}
 /* v39 mood trailer bg */.intro-bg{background:#000 url(deck/p01.jpg) center/cover no-repeat!important}.intro-bg video{top:0!important;height:100%!important;object-position:50% 50%!important;filter:none!important;mix-blend-mode:normal!important}
 /* v40 plain video top */.top-video{width:100%;background:#000}.top-video video{display:block;width:100%;height:auto;max-height:100vh;object-fit:cover}.top-copy{padding:56px 0 24px;text-align:center}
+/* v41 red play */.top-video{position:relative}.top-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:96px;height:96px;border-radius:50%;border:2px solid #ff2a2a;color:#ff2a2a;font-size:34px;display:grid;place-items:center;padding-left:6px;background:rgba(0,0,0,.4);box-shadow:0 0 24px rgba(255,0,0,.6);cursor:pointer;transition:box-shadow .2s,transform .2s}.top-play:hover{box-shadow:0 0 40px rgba(255,0,0,.9);transform:translate(-50%,-50%) scale(1.06)}.top-video.playing .top-play{display:none}
 </style>
 </head>
 <body>
 
 <div class="route" aria-hidden="true"><svg viewBox="0 0 1536 1040" preserveAspectRatio="xMidYMid slice"><path id="routePath" d="M962 1100 L962 1000 L960 955 L952 880 L945 800 L945 765 L950 730 L960 698 L1000 670 L1025 640 L1060 615 L1125 612 L1150 590 L1180 545 L1190 510 L1205 480 L1215 470 L1240 474 L1265 477 L1240 474 L1215 470 L1215 420 L1218 380 L1225 320 L1232 255 L1150 256 L1050 257 L950 258 L840 258 L832 200 L820 120 L800 40 L790 -120"/><circle id="routeEnd" cx="790" cy="-120" r="7"/></svg></div>
 <header class="top" id="top"><h1 class="sr-only">Nightmare Fuel</h1>
-<div class="top-video" id="video"><video src="mood-trailer.mp4" poster="deck/p01.jpg" playsinline controls preload="metadata"></video></div>
+<div class="top-video" id="video"><video src="mood-trailer.mp4" poster="deck/p01.jpg" playsinline controls preload="metadata"></video><button class="top-play" aria-label="Play the mood trailer">▶</button></div>
 <div class="top-copy"><div class="wrap">
 <p class="logline">After hijacking her brother’s hearse at his funeral, Christine attempts to resurrect him, only to unleash a demon into his body <em class="hl">and</em> everyone who received his donated organs.</p>
     <p class="logline ll2">To bring him back, <em class="hl">she’ll have to take them back.</em></p>
@@ -609,5 +610,6 @@ b1.style.transform=`translateX(calc(-50% + ${x-6}vw)) rotate(${a}deg)`;b2.style.
 f1.style.top=(20-y*.05%120)+'vh';f2.style.top=(55-y*.09%140)+'vh';};
 addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(upd)},{passive:true});upd();})();
 </script>
+<script>(()=>{const w=document.querySelector(".top-video");if(!w)return;const v=w.querySelector("video"),b=w.querySelector(".top-play");b.onclick=()=>v.play();v.addEventListener("play",()=>w.classList.add("playing"));v.addEventListener("pause",()=>w.classList.remove("playing"));v.addEventListener("ended",()=>w.classList.remove("playing"));})();</script>
 </body>
 </html>
