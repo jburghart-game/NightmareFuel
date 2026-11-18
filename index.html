@@ -433,19 +433,15 @@ section p,.lede p,.team p{margin-left:auto!important;margin-right:auto!important
 .intro-tex{opacity:.22!important;filter:url(#neon) drop-shadow(0 0 4px rgba(150,255,120,.35)) drop-shadow(0 0 14px rgba(60,255,80,.28)) drop-shadow(0 0 40px rgba(60,255,80,.16))!important}
 .mask-blood{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:url(#redkey);opacity:.55}
 /* v39 mood trailer bg */.intro-bg{background:#000 url(deck/p01.jpg) center/cover no-repeat!important}.intro-bg video{top:0!important;height:100%!important;object-position:50% 50%!important;filter:none!important;mix-blend-mode:normal!important}
+/* v40 plain video top */.top-video{width:100%;background:#000}.top-video video{display:block;width:100%;height:auto;max-height:100vh;object-fit:cover}.top-copy{padding:56px 0 24px;text-align:center}
 </style>
 </head>
 <body>
 
 <div class="route" aria-hidden="true"><svg viewBox="0 0 1536 1040" preserveAspectRatio="xMidYMid slice"><path id="routePath" d="M962 1100 L962 1000 L960 955 L952 880 L945 800 L945 765 L950 730 L960 698 L1000 670 L1025 640 L1060 615 L1125 612 L1150 590 L1180 545 L1190 510 L1205 480 L1215 470 L1240 474 L1265 477 L1240 474 L1215 470 L1215 420 L1218 380 L1225 320 L1232 255 L1150 256 L1050 257 L950 258 L840 258 L832 200 L820 120 L800 40 L790 -120"/><circle id="routeEnd" cx="790" cy="-120" r="7"/></svg></div>
-<header class="intro" id="top">
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="redkey" color-interpolation-filters="sRGB"><feColorMatrix values="1.1 0 0 0 0  0 .12 0 0 0  0 0 .12 0 0  2.4 -2.6 0 0 0"/></filter><filter id="neon" color-interpolation-filters="sRGB"><feColorMatrix values="-.69 0 0 0 .79  0 -.77 0 0 .87  0 0 -.2 0 .23  0 0 0 1 0"/></filter></svg>
-  <h1 class="sr-only">Nightmare Fuel</h1>
-  <div class="intro-stick">
-    <a class="intro-bg" href="#video" aria-label="Watch the mood trailer"><video src="mood-trailer.mp4" poster="deck/p01.jpg" autoplay muted loop playsinline preload="auto"></video><span class="intro-play">▶</span></a>
-    <div class="intro-title"><div class="intro-shake"><div class="intro-mask"></div><img class="intro-tex" src="title.png" alt=""></div></div>
-    <div class="scroll-cue">SCROLL</div>
-    <div class="intro-copy"><div class="wrap">
+<header class="top" id="top"><h1 class="sr-only">Nightmare Fuel</h1>
+<div class="top-video" id="video"><video src="mood-trailer.mp4" poster="deck/p01.jpg" autoplay muted loop playsinline controls preload="auto"></video></div>
+<div class="top-copy"><div class="wrap">
 <p class="logline">After hijacking her brother’s hearse at his funeral, Christine attempts to resurrect him, only to unleash a demon into his body <em class="hl">and</em> everyone who received his donated organs.</p>
     <p class="logline ll2">To bring him back, <em class="hl">she’ll have to take them back.</em></p>
     <div class="cta">
@@ -453,11 +449,10 @@ section p,.lede p,.team p{margin-left:auto!important;margin-right:auto!important
       <a class="btn" href="mailto:JacobBurghart@gmail.com?subject=Nightmare%20Fuel">Get the script</a>
       <a class="btn" href="#deck">View the deck</a>
     </div>
-    </div></div>
-  </div>
+</div></div>
 </header>
 <script>
-(()=>{const I=document.querySelector('.intro'),m=I.querySelector('.intro-title'),bg=I.querySelector('.intro-bg'),c=I.querySelector('.intro-copy'),cue=I.querySelector('.scroll-cue');
+(()=>{if(!document.querySelector('.intro'))return;const I=document.querySelector('.intro'),m=I.querySelector('.intro-title'),bg=I.querySelector('.intro-bg'),c=I.querySelector('.intro-copy'),cue=I.querySelector('.scroll-cue');
 const ease=t=>t*t*t;let raf=0;
 const upd=()=>{raf=0;const r=I.getBoundingClientRect(),span=I.offsetHeight-innerHeight,p=Math.min(1,Math.max(0,-r.top/span));
 const z=Math.min(1,p/.7),s=1+ease(z)*14;
@@ -468,12 +463,6 @@ const k=Math.min(1,Math.max(0,(p-.62)/.25));c.style.opacity=k;c.style.transform=
 addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(upd)},{passive:true});addEventListener('resize',upd);upd();})();
 </script>
 
-<section id="video">
-  <div class="wrap">
-    <h2>Mood trailer</h2>
-    <video class="video" src="mood-trailer.mp4" poster="deck/p01.jpg" controls playsinline preload="metadata"></video>
-  </div>
-</section>
 
 <section id="deck">
   <div class="wrap">
