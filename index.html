@@ -437,12 +437,11 @@ section p,.lede p,.team p{margin-left:auto!important;margin-right:auto!important
 /* v41 red play */.top-video{position:relative}.top-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:96px;height:96px;border-radius:50%;border:2px solid #ff2a2a;color:#ff2a2a;font-size:34px;display:grid;place-items:center;padding-left:6px;background:rgba(0,0,0,.4);box-shadow:0 0 24px rgba(255,0,0,.6);cursor:pointer;transition:box-shadow .2s,transform .2s}.top-play:hover{box-shadow:0 0 40px rgba(255,0,0,.9);transform:translate(-50%,-50%) scale(1.06)}.top-video.playing .top-play{display:none}
 /* v42 */.top-copy .logline{font-size:1.15em}.hl.red{color:#ff2a2a!important;text-shadow:0 0 10px rgba(255,30,30,.85),0 0 28px rgba(255,0,0,.55)!important}
 /* v43 */.top-copy{padding-top:20px!important}.top-copy .logline{font-size:clamp(19px,2.3vw,23px)!important;margin-top:14px}.redglow,.demon,.hl.red{color:#ff2a2a!important;text-shadow:0 0 10px rgba(255,30,30,.85),0 0 28px rgba(255,0,0,.55)!important}
-/* v44 */.route{transition:opacity .5s}.route.away{opacity:0}
 </style>
 </head>
 <body>
 
-<div class="route" aria-hidden="true"><svg viewBox="0 0 1536 1040" preserveAspectRatio="xMidYMid slice"><path id="routePath" d="M758 1100 L758 1000 L758 955 L757 880 L756 800 L756 765 L756 730 L758 698 L764 670 L768 640 L773 615 L783 612 L786 590 L791 545 L792 510 L795 480 L796 470  L796 420 L796 380 L798 320 L799 255 L786 256 L771 257 L756 258 L740 258 L739 200 L737 120 L734 40 L732 -120"/><circle id="routeEnd" cx="732" cy="-120" r="7"/></svg></div>
+<div class="route" aria-hidden="true"><svg viewBox="0 0 1536 1040" preserveAspectRatio="xMidYMid slice"><path id="routePath" d="M758 1100 L758 1000 L758 955 L757 880 L756 800 L756 765 L756 730 L770 700 L840 690 L900 670 L922 640 L926 600 L928 550 L928 500 L928 450 L928 400 L928 340 L922 300 L890 275 L820 262 L770 259 L740 258 L739 200 L737 120 L734 40 L732 -120"/><circle id="routeEnd" cx="732" cy="-120" r="7"/></svg></div>
 <header class="top" id="top"><h1 class="sr-only">Nightmare Fuel</h1>
 <div class="top-video" id="video"><video src="mood-trailer.mp4" poster="deck/p01.jpg" playsinline controls preload="metadata"></video><button class="top-play" aria-label="Play the mood trailer">▶</button></div>
 <div class="top-copy"><div class="wrap">
@@ -609,6 +608,5 @@ f1.style.top=(20-y*.05%120)+'vh';f2.style.top=(55-y*.09%140)+'vh';};
 addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(upd)},{passive:true});upd();})();
 </script>
 <script>(()=>{const w=document.querySelector(".top-video");if(!w)return;const v=w.querySelector("video"),b=w.querySelector(".top-play");b.onclick=()=>v.play();v.addEventListener("play",()=>w.classList.add("playing"));v.addEventListener("pause",()=>w.classList.remove("playing"));v.addEventListener("ended",()=>w.classList.remove("playing"));})();</script>
-<script>(()=>{const r=document.querySelector(".route"),b=document.querySelector(".buckle");if(!r||!b)return;const chk=()=>{const t=b.getBoundingClientRect().top;r.classList.toggle("away",t<innerHeight)};addEventListener("scroll",chk,{passive:true});addEventListener("resize",chk);chk();})();</script>
 </body>
 </html>
